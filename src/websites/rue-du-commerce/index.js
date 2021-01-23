@@ -30,7 +30,7 @@ class RueDuCommerce {
       .then((links) => this.getAvailability(links, url, articleName)))
   }
 
-  sendMailTo(){
+  sendMailTo() {
     if (this.i > 0) {
       var mailOptions = {
         from: 'autobot.ramani@gmail.com',
@@ -62,13 +62,15 @@ class RueDuCommerce {
         .then(getHtml)
         .then((html) => !cheerio.load(html)('#product_action a').first().toString().includes('display:none'))
         .then((isAvailable) => {
-
+          let nowDateTime = new Date().toISOString()
+            .replace(/T/, ' ')
+            .replace(/\..+/, '')
           if (isAvailable) {
-            console.log(`${articleName}:`, `${urlBuilder(url, link)}`.white.bgGreen);
+            console.log(`${nowDateTime}:`, `${articleName}:`, `${urlBuilder(url, link)}`.white.bgGreen);
             this.i++
             this.cardArray += `${articleName}: ${urlBuilder(url, link)}<br>`
           } else {
-            console.log(`${articleName}:`, `${urlBuilder(url, link)}`.white);
+            console.log(`${nowDateTime}:`, `${articleName}:`, `${urlBuilder(url, link)}`.white);
           }
           return isAvailable
         })
