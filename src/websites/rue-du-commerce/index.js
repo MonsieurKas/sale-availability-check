@@ -1,9 +1,10 @@
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
-const colors = require('colors');
 const nodemailer = require('nodemailer');
 
-const { urlBuilder } = require('../../utils');
+const {
+  urlBuilder,
+} = require('../../utils');
 
 const HANDLE = 'RDV';
 const URL = 'https://www.rueducommerce.fr';

@@ -2,7 +2,7 @@
 const { RueDuCommerce } = require('./websites/rue-du-commerce');
 
 // TO IGNORE
-const defaultRetryTimer = 300e3; // = 90 seconds
+const defaultRetryTimer = 1800e3; // = 90 seconds
 
 // STUFF YOU CAN CUSTOMIZE
 const customRetryTimer = null; // Set the value you want
